@@ -1,0 +1,52 @@
+#1 crie uma classe chamada funcionario, uma gerente e uma programador
+#2 divida os atributos como achar necessario
+#3 nome, slario, idade, cargo, quantidade de pessoas na equipe, projeto, inicio do projeto, dias conclusao, gerente, quantidade de linguagens que sabe programar
+#4 Funcionario: crie um metodo para o funcionario ser promovido
+#5 Gerente: contratar funcionario (no maximo 5) e alterar projeto (nao pode ser alterado se ja estiver um projeto)
+#6 Programador: adicionar nova linguagem (somar) e alterar qual equipe faz parte (nome do gerente)
+class Funcionario():
+    nome = None
+    salario = 0
+    idade = 0
+    cargo = None
+    qtd_pes = 0
+    projeto = None
+    inicio_projeto = 0
+    def promocao(self, cargo, salario):
+        print ('Promoção')
+        self.cargo = cargo
+        self.salario = salario
+        print ('Foi promovido para %s com o salario de %s' %(self.cargo, self.salario))
+    
+
+class Gerente(Funcionario):
+    pessoas = 0
+    dias_conclusao = 0
+    gerente = 0
+    def novo_funcionario (self, qtd_pes):
+        self.qtd_pes = qtd_pes
+        if self.qtd_pes <= 5:
+            self.qtd_pes += qtd_pes
+            print ('Pode contratar')
+        else:
+            print ('Numero excedido')
+    def alterar_projeto (self, **kwargs):
+        if self.projeto:
+            print ('Ja existe um projeto')
+        else:
+            self.projeto = kwargs['Projeto']
+            self.inicio = kwargs ['inicio']
+            self.dias = kwargs ['dias']
+            print ('Projeto adicionado com sucesso!')
+      
+class Programador(Funcionario):
+    linguagens = None
+
+
+if __name__ == '__main__':
+    coordenador = Funcionario()
+    coordenador.promocao('Gerente', '10.000')
+    funci_novo = Gerente()
+    funci_novo.novo_funcionario (5)
+    
+ 
