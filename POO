@@ -1,0 +1,89 @@
+#Programação Orientada Objeto
+#'dir' mostra o que tem dentro da classe
+'''
+class CarroAutomatico():
+
+#atributos = caracteristicas
+    cor = 'vermelho'
+    porta = 4
+
+    vel_max = 260
+    #metodos = ações
+    def acelerar():
+        print ('Estou acelerando')
+
+if __name__ == '__main__':
+    carro = CarroAutomatico()
+    print (carro.cor)
+    carro.cor = 'mudou para prata'
+    print (carro.cor)
+
+#'self.(atributos)' para acessar os atributos 
+class CarroAutomatico():
+
+    cor = 'vermelho'
+    porta = 4
+    vel_max = 260
+    vel_atual = 0
+ 
+    def acelerar(self):
+        aceleracao = 50
+        self.vel_atual += aceleracao
+        print (self.vel_atual)
+
+if __name__ == '__main__':
+    carro = CarroAutomatico()
+    carro.acelerar()
+
+#ou
+class CarroAutomatico():
+
+    cor = 'vermelho'
+    porta = 4
+    vel_max = 260
+    vel_atual = 0
+ 
+    def acelerar(self,aceleracao):
+        self.vel_atual += aceleracao
+        if self.vel_max >= aceleracao:
+            print('Pode acelerar')
+        else:
+            print ('Não pode acelerar')
+        print (self.vel_atual)
+
+if __name__ == '__main__':
+    carro = CarroAutomatico()
+    carro.acelerar(270)
+'''
+#herença
+class Veiculo():
+    cor = None
+    tamanho = 0
+    motor = 0
+    tipo_motor = None
+    vel_max = 0
+
+    def pintar(self,nova_cor):
+        print ('Alterando a cor')
+        self.cor = nova_cor
+        print ('Cor alterada com sucesso\n \
+                Nova cor: %s' %self.cor)
+#herdar os objetos de cima:
+class Carro(Veiculo):
+    ar_condicionado = False
+    porta = 0
+    vel_atual = 0
+    
+    def acelerar(self, velocidade):
+        self.vel_atual =+ velocidade
+        print ('Acelerando...')
+    
+if __name__ == '__main__':
+    carro = Carro()
+    carro.cor = 'vermelho'
+    print (carro.cor)
+    carro.pintar('preto')
+    print(carro.cor)
+    carro.acelerar(100)
+    carro.ar_condicionado = True
+    print (carro.ar_condicionado)
