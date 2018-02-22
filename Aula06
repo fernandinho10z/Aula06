@@ -1,0 +1,132 @@
+#def manipular_arquivo(parametros):
+#    print (parametros)
+#
+#manipular_arquivo('argumento')
+'''
+def login(usuario,senha='123Mudar'):
+    print ('Seu usuario e: %s\nSua senha e: %s' %(usuario,senha))
+
+
+
+fornecedor = []
+
+def vendas():
+    global fornecedor
+    print (quantidade)
+    produto = 'manga'
+    print (produto)
+
+def compras():
+    produto = 'abacaxi'
+    print (produto)
+
+
+def lista(*args):
+    print (args[2])
+
+
+def dicionario(**kwargs):
+    print (kwargs['produto'])
+
+
+def entrada(nome):
+    if nome == 'mariana':
+        return "Pode entrar"
+    else:
+        return "Nao pode entrar"
+
+def menu():
+    nome = input('Digite o seu nome: ')
+    entrada()
+    return nome
+
+if __name__ == '__main__':
+    print(entrada(menu()))
+'''
+
+'''
+crie um sistema de cadastro para usuario (utilizando funcoes).
+
+1 - Crie um menu com: 1 - Cadastro de usuario 2- Acesso ao sistema 3 - Sair
+
+2 - Grave os dados de acesso como um dicionario (dentro de uma lista)
+
+3 - Para acessar o sistema, verifique se o usuario e senha sao correspondentes ao que tem gravado na lista
+
+#função 'decorator'
+def valida_login (nome):
+    def acesso():
+        global login
+        if login:
+            return nome()    
+        else:
+            print ('Voce não tem acesso ao sistema')
+            return exit()
+    return acesso
+
+user = []
+login = False
+
+def menu():
+    print ('\n1 - Cadastro de usuario \n2- Acesso ao sistema \n3 - Sair \n4 - Produtos')
+    opcao = int(input('Digite uma opcao: '))
+    if opcao == 1:
+        cadastro()
+    elif opcao == 2:
+        acesso()
+    elif opcao == 3:
+        sair()
+    elif opcao == 4:
+        print (listar_produtos())
+    else:
+        print ('Opcao invalida')
+    
+def cadastro():
+    global user
+    nome = input('Digite o usuario: ')
+    senha = input('Digite a senha: ')
+    user.append({'nome':nome,'senha':senha})
+    print ('Cadastrado com sucesso!')
+
+def acesso():
+    global user
+    global login
+    nome = input('Digite o usuario: ')
+    senha = input('Digite a senha: ')
+    for usuario in user:
+        if usuario['nome'] == nome and usuario['senha'] == senha:
+            login = True
+            print ('Acesso permitido')
+            return
+    print ('Acesso negado')
+
+
+@valida_login
+def listar_produtos():
+    return "Listando produtos"
+
+@valida_login
+def listar_usuario():
+    return "lista de usuarios"
+
+def sair():
+    return 'Saindo do sistema'
+
+if __name__ == '__main__':
+    while True:
+        menu()
+'''
+#decorator
+def meu_decorator(nome_funcao):
+    def execucao():x
+        print ('Entrei no decorator')
+        nome_funcao()
+        print ('Saindo do decorator')
+    return execucao
+    
+@meu_decorator
+def teste():
+    print ('Testando o decorator')
+teste()
+
+
